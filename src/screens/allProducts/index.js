@@ -51,7 +51,9 @@ function AllProductsScreen({navigation}) {
     );
 }
 AllProductsScreen.propTypes = {
-  todoList: PropTypes.array,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
   fetchListSuccess: PropTypes.func,
   fetchListfailure: PropTypes.func,
 };

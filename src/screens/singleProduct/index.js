@@ -23,7 +23,6 @@ function SingleProductScreen({route, navigation}) {
       setAddToCart(false);
     }, 3000);
   };
-
   const {id} = route.params;
   navigation.setOptions({title: product.title});
   useEffect(() => {
@@ -37,7 +36,7 @@ function SingleProductScreen({route, navigation}) {
         setNeworkError(error.message);
       });
     return clearTimeout(successfullMessage);
-  }, []);
+  }, [id, successfullMessage]);
   if (networkError) return <NetworkError text={networkError} />;
   if (loading) return <ActivityIndicator />;
   else
@@ -66,8 +65,11 @@ function SingleProductScreen({route, navigation}) {
     );
 }
 SingleProductScreen.propTypes = {
-  todoList: PropTypes.array,
-  fetchListSuccess: PropTypes.func,
-  fetchListfailure: PropTypes.func,
+  route: PropTypes.shape({
+    params: PropTypes.shape({id: PropTypes.number.isRequired}),
+  }).isRequired,
+  navigation: PropTypes.shape({
+    setOptions: PropTypes.func.isRequired,
+  }).isRequired,
 };
 export default SingleProductScreen;

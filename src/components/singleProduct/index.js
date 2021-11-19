@@ -27,6 +27,5 @@ function SingleProduct({item, onPress}) {
 SingleProduct.propTypes = {
   item: PropTypes.object,
   onPress: PropTypes.func,
-  selected: PropTypes.array,
 };
 export default SingleProduct;
