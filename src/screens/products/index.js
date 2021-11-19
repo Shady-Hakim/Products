@@ -3,7 +3,7 @@ import {ActivityIndicator, FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import PropTypes from 'prop-types';
 import fetchData from '../../conrollers/fetchData';
-import SingleProduct from '../../components/singleProduct';
+import SingleProduct from '../../components/product';
 import {
   fetchListRequest,
   fetchListSuccess,
@@ -39,7 +39,7 @@ function AllProductsScreen({navigation}) {
         renderItem={({item}) => (
           <SingleProduct
             onPress={() =>
-              navigation.navigate('Single product', {
+              navigation.navigate('Product', {
                 id: item.id,
               })
             }
